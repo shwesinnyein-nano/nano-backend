@@ -3,7 +3,6 @@ const cors = require("cors");
 
 const app = express();
 
-// Middlewares
 app.use(cors());
 app.use(express.json());
 
@@ -11,12 +10,20 @@ app.use(express.json());
 const authRoutes = require("./api/authentication");
 const lineRoutes = require("./api/send-line-message");
 
-// Mount routes
-app.use("/api/auth", authRoutes);
-app.use("/api/line", lineRoutes);
+// Define API routes
+app.use("/auth", authRoutes);
+app.use("/line", lineRoutes);
+
+// Default route to prevent 404
+app.get("/", (req, res) => {
+  res.send("Backend is working!");
+});
+
+// Export the app for serverless deployment
+module.exports = app;
 
 // Start server for local development
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 8080;
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
