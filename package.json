@@ -2,9 +2,10 @@
   "name": "nano-backend",
   "version": "1.0.0",
   "description": "NANO-Backend",
-  "main": "server.js",
+  "main": "api/vercel.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "vercel-build": "vercel build"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "express": "^4.21.2",
     "firebase-admin": "^13.1.0",
     "qrcode": "^1.5.4",
-    "speakeasy": "^2.0.0"
+    "speakeasy": "^2.0.0",
+    "serverless-http": "^3.0.0"
   }
 }

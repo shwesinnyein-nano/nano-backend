@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -15,6 +16,12 @@ app.use('/auth', authRoutes);
 app.use('/line', lineRoutes);
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+// Export for Vercel
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
