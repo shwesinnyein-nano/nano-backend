@@ -2,10 +2,9 @@
   "name": "nano-backend",
   "version": "1.0.0",
   "description": "NANO-Backend",
-  "main": "server.js",
+  "main": "api/vercel.js",
   "scripts": {
-    "start": "node server.js",
-    "vercel-build": "vercel build"
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^1.6.0",
